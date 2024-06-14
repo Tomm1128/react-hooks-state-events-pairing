@@ -1,6 +1,6 @@
 import React from "react";
 
-function VoteButton({ votes, updateVotes, thumbsUp, thumbsDown}) {
+function VoteButtons({ votes, updateVotes, thumbsUp, thumbsDown}) {
   const [upVotes, downVotes] = votes
 
   return (
@@ -11,4 +11,4 @@ function VoteButton({ votes, updateVotes, thumbsUp, thumbsDown}) {
   );
 }
 
-export default VoteButton;
+export default VoteButtons;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import VoteButton from "./VoteButton";
+import VoteButtons from "./VoteButtons";
 
 function VideoDetails({video, updateVideoData, showComments, setShowComments}) {
   const [upVotes, setUpVotes] = useState(video.upvotes)
@@ -47,7 +47,7 @@ function VideoDetails({video, updateVideoData, showComments, setShowComments}) {
     <div className="video-details">
       <h2>{video.title}</h2>
       <p>{video.views} views | {video.createdAt}</p>
-      <VoteButton
+      <VoteButtons
         votes={[video.upvotes, video.downvotes]}
         updateVotes={updateVotes}
         thumbsUp={"👍"}
