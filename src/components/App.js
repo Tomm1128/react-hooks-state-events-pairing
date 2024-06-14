@@ -10,6 +10,10 @@ function App() {
   console.log("Here's your data:", video);
   const [videoData, setVideoData] = useState(video)
 
+  const updateVideoData = (newData) => {
+    console.log(newData)
+  }
+
   return (
 
     <div className="App">
@@ -18,8 +22,9 @@ function App() {
         title={videoData.title}
         createdAt={videoData.createdAt}
         views={videoData.views}
-        upVotes={videoData.upvotes}
-        downVotes={videoData.downvotes}
+        totalUpVotes={videoData.upvotes}
+        totalDownVotes={videoData.downvotes}
+        updateVideoData={updateVideoData}
       />
       <Comments comments={videoData.comments}/>
     </div>
