@@ -1,11 +1,17 @@
 import React from "react";
+import CommentCard from "./CommentCard";
 
-function Comments() {
+function Comments({comments}) {
+
+  const commentCards = comments.map((comment) => {
+    return <CommentCard key={comment.id} comment={comment.comment} user={comment.user}/>
+  })
 
   return (
 
     <div className="comments">
-      <h3>Comments</h3>
+      <h2>{comments.length} Comments</h2>
+      {commentCards}
     </div>
   );
 }

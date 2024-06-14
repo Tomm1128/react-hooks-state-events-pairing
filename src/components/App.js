@@ -21,7 +21,7 @@ function App() {
         upVotes={videoData.upvotes}
         downVotes={videoData.downvotes}
       />
-      <Comments />
+      <Comments comments={videoData.comments}/>
     </div>
   );
 }
