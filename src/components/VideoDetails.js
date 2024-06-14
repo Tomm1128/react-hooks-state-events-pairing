@@ -1,39 +1,21 @@
 import React, { useState } from "react";
 import VoteButtons from "./VoteButtons";
+import Comments from "./Comments.js";
 
-function VideoDetails({video, updateVideoData, showComments, setShowComments}) {
+function VideoDetails({video, updateVideoData}) {
   const [upVotes, setUpVotes] = useState(video.upvotes)
   const [downVotes, setDownVotes] = useState(video.downvotes)
-
-  const updateUpVotes = (event) => {
-    const newUpVoteValue = Number(event.target.value) + 1
-    const newVotes = {
-      upvotes: newUpVoteValue
-    }
-    setUpVotes(newUpVoteValue)
-    updateVideoData(newVotes)
-  }
-
-  const updateDownVotes = (event) => {
-    const newDownVoteValue = Number(event.target.value) - 1
-    const newVotes = {
-      downvotes: newDownVoteValue
-    }
-    setDownVotes(newDownVoteValue)
-    updateVideoData(newVotes)
-  }
+  const [showComments, setShowComments] = useState(true)
 
   const updateVotes = (event) => {
-    let newVoteCount
+    let newVoteCount = Number(event.target.value) + 1
     let newVotes
     if(event.target.id === "up-vote"){
-      newVoteCount = Number(event.target.value) + 1
       newVotes = {
         upvotes: newVoteCount
       }
       setUpVotes(newVoteCount)
     } else {
-      newVoteCount = Number(event.target.value) - 1
       newVotes = {
         downvotes: newVoteCount
       }
@@ -44,17 +26,20 @@ function VideoDetails({video, updateVideoData, showComments, setShowComments}) {
   }
 
   return (
-    <div className="video-details">
-      <h2>{video.title}</h2>
-      <p>{video.views} views | {video.createdAt}</p>
-      <VoteButtons
-        votes={[video.upvotes, video.downvotes]}
-        updateVotes={updateVotes}
-        thumbsUp={"👍"}
-        thumbsDown={"👎"}
-      />
-      <button id="hide-comments" value={showComments} onClick={() => setShowComments(!showComments)}>Hide Comments</button>
-    </div>
+    <>
+      <div className="video-details">
+        <h2>{video.title}</h2>
+        <p>{video.views} views | {video.createdAt}</p>
+        <VoteButtons
+          votes={[upVotes, downVotes]}
+          updateVotes={updateVotes}
+          thumbsUp={"👍"}
+          thumbsDown={"👎"}
+        />
+        <button id="hide-comments" value={showComments} onClick={() => setShowComments(!showComments)}>Hide Comments</button>
+      </div>
+      <Comments comments={video.comments} showComments={showComments}/>
+    </>
   )
 }
 
