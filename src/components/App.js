@@ -1,20 +1,32 @@
-import video from "../data/video.js";
+import React, { useState } from "react"
+
+import Video from "./Video.js"
+import VideoDetails from "./VideoDetails.js"
+
+import video from "../data/video.js"
 
 function App() {
-  console.log("Here's your data:", video);
+  const [videoData, setVideoData] = useState(video)
+
+  const updateVideoData = (newVotes) => {
+    const votesKey = Object.keys(newVotes)[0]
+    const value = Object.values(newVotes)[0]
+    const newVotesData = {
+      ...videoData,
+      [votesKey] : value
+    }
+    setVideoData(newVotesData)
+  }
 
   return (
     <div className="App">
-      <iframe
-        width="919"
-        height="525"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-        frameBorder="0"
-        allowFullScreen
-        title="Thinking in React"
+      <Video video={videoData}/>
+      <VideoDetails
+        video={videoData}
+        updateVideoData={updateVideoData}
       />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
