@@ -4,6 +4,7 @@ import Video from "./Video.js";
 
 import video from "../data/video.js";
 import VideoDetails from "./VideoDetails.js";
+import Comments from "./Comments.js";
 
 function App() {
   console.log("Here's your data:", video);
@@ -20,6 +21,7 @@ function App() {
         upVotes={videoData.upvotes}
         downVotes={videoData.downvotes}
       />
+      <Comments />
     </div>
   );
 }
