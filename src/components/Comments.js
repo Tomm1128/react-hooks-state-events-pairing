@@ -1,7 +1,7 @@
 import React from "react";
 import CommentCard from "./CommentCard";
 
-function Comments({comments}) {
+function Comments({comments, showComments}) {
 
   const commentCards = comments.map((comment) => {
     return <CommentCard key={comment.id} comment={comment.comment} user={comment.user}/>
@@ -9,7 +9,7 @@ function Comments({comments}) {
 
   return (
 
-    <div className="comments">
+    <div className="comments" style={{display: showComments ? "" : "none"}}>
       <h2>{comments.length} Comments</h2>
       {commentCards}
     </div>

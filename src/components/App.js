@@ -8,6 +8,7 @@ import Comments from "./Comments.js";
 
 function App() {
   const [videoData, setVideoData] = useState(video)
+  const [showComments, setShowComments] = useState(true)
 
   const updateVideoData = (newVotes) => {
     const votesKey = Object.keys(newVotes)[0]
@@ -30,8 +31,10 @@ function App() {
         totalUpVotes={videoData.upvotes}
         totalDownVotes={videoData.downvotes}
         updateVideoData={updateVideoData}
+        showComments={showComments}
+        setShowComments={setShowComments}
       />
-      <Comments comments={videoData.comments}/>
+      <Comments comments={videoData.comments} showComments={showComments}/>
     </div>
   );
 }
