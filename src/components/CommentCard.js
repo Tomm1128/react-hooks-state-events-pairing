@@ -18,12 +18,7 @@ const updateCommentVotes = (event) => {
     <div className="comment">
       <h3>{user}</h3>
       <p>{comment}</p>
-      <VoteButtons
-        votes={[commentUpVote, commentDownVote]}
-        updateVotes={updateCommentVotes}
-        thumbsUp={"👍"}
-        thumbsDown={"👎"}
-      />
+      <VoteButtons votes={[commentUpVote, commentDownVote]} updateVotes={updateCommentVotes}/>
     </div>
   );
 }

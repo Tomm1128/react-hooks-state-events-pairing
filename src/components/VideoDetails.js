@@ -10,6 +10,7 @@ function VideoDetails({video, updateVideoData}) {
   const updateVotes = (event) => {
     let newVoteCount = Number(event.target.value) + 1
     let newVotes
+
     if(event.target.id === "up-vote"){
       newVotes = {
         upvotes: newVoteCount
@@ -30,13 +31,10 @@ function VideoDetails({video, updateVideoData}) {
       <div className="video-details">
         <h2>{video.title}</h2>
         <p>{video.views} views | {video.createdAt}</p>
-        <VoteButtons
-          votes={[upVotes, downVotes]}
-          updateVotes={updateVotes}
-          thumbsUp={"👍"}
-          thumbsDown={"👎"}
-        />
-        <button id="hide-comments" value={showComments} onClick={() => setShowComments(!showComments)}>Hide Comments</button>
+        <VoteButtons votes={[upVotes, downVotes]} updateVotes={updateVotes}/>
+        <button id="hide-comments" value={showComments}
+          onClick={() => setShowComments(!showComments)}
+        > {showComments ? "Hide Comments" : "Show Comments"}</button>
       </div>
       <Comments comments={video.comments} showComments={showComments}/>
     </>
