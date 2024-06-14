@@ -8,7 +8,6 @@ function Comments({comments, showComments}) {
   })
 
   return (
-
     <div className="comments" style={{display: showComments ? "" : "none"}}>
       <h2>{comments.length} Comments</h2>
       {commentCards}

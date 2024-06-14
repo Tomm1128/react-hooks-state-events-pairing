@@ -21,15 +21,10 @@ function App() {
   }
 
   return (
-
     <div className="App">
       <Video video={videoData}/>
       <VideoDetails
-        title={videoData.title}
-        createdAt={videoData.createdAt}
-        views={videoData.views}
-        totalUpVotes={videoData.upvotes}
-        totalDownVotes={videoData.downvotes}
+        video={videoData}
         updateVideoData={updateVideoData}
         showComments={showComments}
         setShowComments={setShowComments}
