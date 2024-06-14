@@ -7,11 +7,16 @@ import VideoDetails from "./VideoDetails.js";
 import Comments from "./Comments.js";
 
 function App() {
-  console.log("Here's your data:", video);
   const [videoData, setVideoData] = useState(video)
 
-  const updateVideoData = (newData) => {
-    console.log(newData)
+  const updateVideoData = (newVotes) => {
+    const votesKey = Object.keys(newVotes)[0]
+    const value = Object.values(newVotes)[0]
+    const newVotesData = {
+      ...videoData,
+      [votesKey] : value
+    }
+    setVideoData(newVotesData)
   }
 
   return (

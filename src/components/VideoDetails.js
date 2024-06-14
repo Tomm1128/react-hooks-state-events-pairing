@@ -6,22 +6,22 @@ function VideoDetails({title, createdAt, views, totalUpVotes, totalDownVotes, up
 
   const updateUpVotes = (event) => {
     const newUpVoteValue = Number(event.target.value) + 1
+    const newVotes = {
+      upvotes: newUpVoteValue
+    }
     setUpVotes(newUpVoteValue)
+    updateVideoData(newVotes)
   }
 
   const updateDownVotes = (event) => {
     const newDownVoteValue = Number(event.target.value) - 1
-    setDownVotes(newDownVoteValue)
-  }
-
-  const updateData = (event) => {
     const newVotes = {
-      upVotes: upVotes,
-      downVotes: downVotes
+      downvotes: newDownVoteValue
     }
-
-    console.log(newVotes)
+    setDownVotes(newDownVoteValue)
+    updateVideoData(newVotes)
   }
+
 
   return (
     <div className="video-details">
