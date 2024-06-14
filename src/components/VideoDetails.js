@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import VoteButton from "./VoteButton";
 
 function VideoDetails({video, updateVideoData, showComments, setShowComments}) {
   const [upVotes, setUpVotes] = useState(video.upvotes)
@@ -22,12 +23,36 @@ function VideoDetails({video, updateVideoData, showComments, setShowComments}) {
     updateVideoData(newVotes)
   }
 
+  const updateVotes = (event) => {
+    let newVoteCount
+    let newVotes
+    if(event.target.id === "up-vote"){
+      newVoteCount = Number(event.target.value) + 1
+      newVotes = {
+        upvotes: newVoteCount
+      }
+      setUpVotes(newVoteCount)
+    } else {
+      newVoteCount = Number(event.target.value) - 1
+      newVotes = {
+        downvotes: newVoteCount
+      }
+      setDownVotes(newVoteCount)
+    }
+
+    updateVideoData(newVotes)
+  }
+
   return (
     <div className="video-details">
       <h2>{video.title}</h2>
       <p>{video.views} views | {video.createdAt}</p>
-      <button id="up-vote" value={upVotes} onClick={updateUpVotes}>{upVotes} 👍</button>
-      <button id="down-vote" value={downVotes} onClick={updateDownVotes}>{downVotes} 👎</button>
+      <VoteButton
+        votes={[video.upvotes, video.downvotes]}
+        updateVotes={updateVotes}
+        thumbsUp={"👍"}
+        thumbsDown={"👎"}
+      />
       <button id="hide-comments" value={showComments} onClick={() => setShowComments(!showComments)}>Hide Comments</button>
     </div>
   )
