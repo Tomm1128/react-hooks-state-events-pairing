@@ -1,7 +1,6 @@
-import React from "react";
+import React from "react"
 
 function Video({video}) {
-
   return (
       <iframe
         width="919"
@@ -11,7 +10,7 @@ function Video({video}) {
         allowFullScreen
         title={video.title}
       />
-  );
+  )
 }
 
-export default Video;
+export default Video

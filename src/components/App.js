@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
-import Video from "./Video.js";
-import VideoDetails from "./VideoDetails.js";
+import Video from "./Video.js"
+import VideoDetails from "./VideoDetails.js"
 
-import video from "../data/video.js";
+import video from "../data/video.js"
 
 function App() {
   const [videoData, setVideoData] = useState(video)
@@ -26,7 +26,7 @@ function App() {
         updateVideoData={updateVideoData}
       />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

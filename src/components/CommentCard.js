@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import VoteButtons from "./VoteButtons";
+import React, { useState } from "react"
+import VoteButtons from "./VoteButtons"
 
 function CommentCard({commentId, comment, user, deleteComment}) {
 const [commentUpVote, setCommentUpVote] = useState(0)
@@ -7,6 +7,7 @@ const [commentDownVote, setCommentDownVote] = useState(0)
 
 const updateCommentVotes = (event) => {
   let newVoteCount = Number(event.target.value) + 1
+
   if(event.target.id === "up-vote"){
     setCommentUpVote(newVoteCount)
   } else {
@@ -21,7 +22,7 @@ const updateCommentVotes = (event) => {
       <VoteButtons votes={[commentUpVote, commentDownVote]} updateVotes={updateCommentVotes}/>
       <button onClick={deleteComment}>Remove Comment</button>
     </div>
-  );
+  )
 }
 
-export default CommentCard;
+export default CommentCard

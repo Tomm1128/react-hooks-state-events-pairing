@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import VoteButtons from "./VoteButtons";
-import Comments from "./Comments.js";
+import React, { useState } from "react"
+
+import VoteButtons from "./VoteButtons"
+import Comments from "./Comments.js"
 
 function VideoDetails({video, updateVideoData}) {
   const [upVotes, setUpVotes] = useState(video.upvotes)
@@ -41,4 +42,4 @@ function VideoDetails({video, updateVideoData}) {
   )
 }
 
-export default VideoDetails;
+export default VideoDetails

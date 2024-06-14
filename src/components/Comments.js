@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import CommentCard from "./CommentCard";
+import React, { useState } from "react"
+import CommentCard from "./CommentCard"
 
 function Comments({comments, showComments}) {
   const [commentList, setCommentList] = useState(comments)
@@ -27,7 +27,7 @@ function Comments({comments, showComments}) {
       <h2>{commentList.length} Comments</h2>
       {commentCards}
     </div>
-  );
+  )
 }
 
-export default Comments;
+export default Comments
